@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const connect = () =>{
-    mongoose.connect(process.env.MONGODB_uri || 'mongodb://localhost:27017/todoapp')
+    mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/todoapp')
     mongoose.connection.on('successfulconnect', () =>{
         console.log('connection successful');
     })
