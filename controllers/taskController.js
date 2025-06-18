@@ -22,11 +22,25 @@ const deleteTask = async(req,res) =>{
     }
 }
 
+const updateTask = async(req,res) => {
+    try {
+        const updatedTask = await taskModel.findByIdAndUpdate(
+            req.params.id,
+            { title: req.body.title },
+            {state:req.body.state},
+            { new: true }
+        );
+        res.status(200).json({message:"Task has been updated", task: updatedTask});
+    } catch(err) {
+        res.status(400).json({error:err.message});
+    }
+}
+
 
 
 
 module.exports = {
     create,
     deleteTask,
-    update,
+    updateTask,
 }
