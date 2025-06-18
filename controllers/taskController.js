@@ -17,10 +17,11 @@ const create = async(req,res) => {
 const deleteTask = async(req,res) =>{
     try { 
        const deletedTask = await taskModel.findByIdAndDelete(req.params.id);
-    }catch{
-        
+    }catch(err){
+        res.status(400).json({error:err.message})
     }
 }
+
 
 
 

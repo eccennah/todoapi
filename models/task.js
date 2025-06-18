@@ -14,6 +14,6 @@ const task = new Schema({
 
 
 
-const taskModel = model('tasks',task)
+const taskModel = model('task',task)
 
 module.exports = {taskModel}
