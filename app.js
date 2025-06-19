@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const express = require ('express');
 const {connect} = require('./db/connection')
+const auth = require('./middlewares/auth');
+const taskModel = require('./models/task');
 require('dotenv').config();
 
 const app = express()
@@ -31,7 +33,7 @@ app.get("/dashboard", auth.verifyToken, async (req, res) => {
     // console.log(articles)
     res
       .status(200)
-      .render("dashboard", { user_id, user,  articles, date: new Date() });
+      .render("dashboard", { user_id, user,  tasks, date: new Date() });
   } catch (err) {
     return res.json(err);
   }
