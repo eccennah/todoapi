@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const user = require("../models/users");
-
+require("dotenv").config();
 
 verifyToken = (req,res,next) =>{
     let token = req.headers["x-access-token"]
@@ -23,4 +23,4 @@ verifyToken = (req,res,next) =>{
 
 
 
-module.exports = verifyToken
+module.exports = {verifyToken}
