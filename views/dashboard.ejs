@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, <%= user.first_name %>!</h1>
+    <p>User ID: <%= user_id %></p>
+    <p>Date: <%= date.toLocaleString() %></p>
+
+    <h2>Your Tasks</h2>
+    <% if (tasks.length === 0) { %>
+        <p>No tasks found.</p>
+    <% } else { %>
+        <ul>
+            <% tasks.forEach(function(task) { %>
+                <li>
+                    <strong><%= task.title %></strong>
+                    <% if (task.description) { %>
+                        - <%= task.description %>
+                    <% } %>
+                </li>
+            <% }); %>
+        </ul>
+    <% } %>
+</body>
+</html>
